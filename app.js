@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-mongoose.connect("mongodb+srv://Admin-Himasha:Test123@cluster0.hfeq2cs.mongodb.net/todoListDB");
+mongoose.connect("mongodb+srv://Admin-Himasha:"+MONGODB_ADDMIN_PASS+"@cluster0.hfeq2cs.mongodb.net/todoListDB");
 
 const itemsSchema=new mongoose.Schema({
   name:String
